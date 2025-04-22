@@ -12,7 +12,7 @@ public class User {
     private double salary;
     private List<Expense> expenses;
 
-    // Constructor mặc định cho Firestore
+
     public User() {
     }
 
