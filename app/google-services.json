@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "115635099120",
+    "project_id": "personalfinancetracker-f1f49",
+    "storage_bucket": "personalfinancetracker-f1f49.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115635099120:android:beccd02476bb8fe133b935",
+        "android_client_info": {
+          "package_name": "hcmute.edu.vn.personalfinancetracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcqGEVAPCWLtFkYfGRyMh7e4dJt--_Mlg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
