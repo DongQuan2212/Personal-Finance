@@ -1,28 +1,25 @@
 package hcmute.edu.vn.personalfinancetracker.Model;
 
 import java.util.Date;
-import java.util.List;
 
 public class User {
-    private String userId; // Thêm trường userId
+    private String userId;
     private String email;
     private String fullname;
     private Date birthday;
     private String career;
     private double salary;
-    private List<Expense> expenses;
-
 
     public User() {
     }
 
-    public User(String userId, String email, String fullname, Date birthday, String career, List<Expense> expenses) {
+    public User(String userId, String email, String fullname, Date birthday, String career) {
         this.userId = userId;
         this.email = email;
         this.fullname = fullname;
         this.birthday = birthday;
         this.career = career;
-        this.expenses = expenses;
+
     }
 
     // Getters và setters
@@ -72,13 +69,5 @@ public class User {
 
     public void setSalary(double salary) {
         this.salary = salary;
-    }
-
-    public List<Expense> getExpenses() {
-        return expenses;
-    }
-
-    public void setExpenses(List<Expense> expenses) {
-        this.expenses = expenses;
     }
 }

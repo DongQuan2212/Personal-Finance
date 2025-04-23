@@ -21,15 +21,14 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
-        emailEditText = findViewById(R.id.emailEditText);
-        passwordEditText = findViewById(R.id.passwordEditText);
+        emailEditText = findViewById(R.id.ed_email);
+        passwordEditText = findViewById(R.id.ed_password);
         Button loginButton = findViewById(R.id.loginButton);
         TextView registerRedirect = findViewById(R.id.registerRedirectText);
 
         loginButton.setOnClickListener(v -> {
             String email = emailEditText.getText().toString().trim();
             String password = passwordEditText.getText().toString().trim();
-
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(LoginActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 return;
@@ -45,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Đăng nhập thất bại: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
+
         });
 
         registerRedirect.setOnClickListener(v -> {

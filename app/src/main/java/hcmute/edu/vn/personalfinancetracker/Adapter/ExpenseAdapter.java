@@ -8,7 +8,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 import hcmute.edu.vn.personalfinancetracker.Model.Expense;
 import hcmute.edu.vn.personalfinancetracker.R;
@@ -35,12 +39,23 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
     public void onBindViewHolder(@NonNull ExpenseViewHolder holder, int position) {
         Expense expense = expenses.get(position);
 
+        // Hiển thị tên
         holder.nameTextView.setText(expense.getName());
-        holder.dateTextView.setText(expense.getDate());
-        holder.amountTextView.setText(expense.getFormattedAmount());
-        holder.iconTextView.setText(expense.getFirstLetter());
 
-        // Set text color based on expense or income
+        // Hiển thị ngày (định dạng Date thành String)
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.US);
+        String formattedDate = dateFormat.format(expense.getDate());
+        holder.dateTextView.setText(formattedDate);
+
+        // Định dạng số tiền
+        String formattedAmount = expense.getFormattedAmount();
+        holder.amountTextView.setText(formattedAmount);
+
+        // Lấy chữ cái đầu của tên làm icon
+        String firstLetter = expense.getFirstLetter();
+        holder.iconTextView.setText(firstLetter);
+
+        // Đặt màu cho số tiền: đỏ nếu là chi tiêu, xanh nếu là thu nhập
         int textColor = expense.isExpense() ?
                 ContextCompat.getColor(context, R.color.expense_red) :
                 ContextCompat.getColor(context, R.color.income_green);

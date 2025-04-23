@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="expense_red">#F44336</color>
     <color name="income_green">#4CAF50</color>
+    <color name="divider_color">#BDBDBD</color>
+    <color name="ripple_color">#33000000</color>
+    <color name="card_background">#FFFFFF</color>
 </resources>

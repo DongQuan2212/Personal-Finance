@@ -11,7 +11,9 @@
         android:id="@+id/mainCardView"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:layout_margin="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="15dp"
         app:cardCornerRadius="24dp"
         app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,8 +37,7 @@
                     android:id="@+id/tx_fullname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bùi Lê Đông Quân"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -50,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Salary"
+                android:text="Ngân sách"
                 android:textColor="#757575"
                 android:textSize="16sp" />
 
@@ -60,7 +61,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
-                android:text="2.000.000 VND"
                 android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -90,14 +90,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Thu nhập"
-                        android:textSize="12sp" />
+                        android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/tx_phantram_thunhap"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
                         android:text="0%"
-                        android:textSize="12sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -116,14 +117,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chi tiêu"
-                        android:textSize="12sp" />
+                        android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/tx_phantram_chitieu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
-                        android:text="32%"
-                        android:textSize="12sp" />
+                        android:text="0%"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -142,7 +144,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/viewAllButton"
+                    android:id="@+id/tx_view_all_expense"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -152,19 +154,19 @@
             </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:background="@color/white"
                 android:id="@+id/expensesRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/white"
                 tools:listitem="@layout/expense_item" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ic_notification"
+        android:id="@+id/ic_statistical"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/circle_background"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/ic_menu"
@@ -173,31 +175,31 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_notification" />
+            app:srcCompat="@drawable/ic_bar_chart" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ic_setting"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/circle_background"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/ic_notification"
-        app:layout_constraintEnd_toEndOf="@+id/ic_notification"
+        app:layout_constraintBottom_toTopOf="@+id/ic_statistical"
+        app:layout_constraintEnd_toEndOf="@+id/ic_statistical"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/ic_notification">
+        app:layout_constraintStart_toStartOf="@+id/ic_statistical">
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -209,7 +211,7 @@
         android:id="@+id/ic_menu"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/circle_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -218,8 +220,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -233,7 +235,7 @@
         android:id="@+id/ic_add"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/circle_background"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/ic_setting"
@@ -243,8 +245,8 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

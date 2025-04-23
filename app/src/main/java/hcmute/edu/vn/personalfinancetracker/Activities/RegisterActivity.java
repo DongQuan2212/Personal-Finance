@@ -11,11 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import hcmute.edu.vn.personalfinancetracker.Model.User;
-import hcmute.edu.vn.personalfinancetracker.Model.Expense;
 import hcmute.edu.vn.personalfinancetracker.R;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -34,20 +32,18 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Initialize EditText fields
         try {
-            emailEditText = findViewById(R.id.emailEditText);
-            passwordEditText = findViewById(R.id.passwordEditText);
-            fullnameEditText = findViewById(R.id.fullnameEditText);
-            birthdayEditText = findViewById(R.id.birthdayEditText);
-            careerEditText = findViewById(R.id.careerEditText);
-            salaryEditText = findViewById(R.id.salaryEditText);
+            emailEditText = findViewById(R.id.ed_email);
+            passwordEditText = findViewById(R.id.ed_password);
+            fullnameEditText = findViewById(R.id.ed_fullname);
+            birthdayEditText = findViewById(R.id.ed_birthday);
+            careerEditText = findViewById(R.id.ed_career);
         } catch (Exception e) {
             Log.e(TAG, "Failed to initialize EditText fields: ", e);
             Toast.makeText(this, "Lỗi giao diện, vui lòng kiểm tra lại", Toast.LENGTH_LONG).show();
             return;
         }
-
-        Button registerButton = findViewById(R.id.registerButton);
-        TextView loginRedirect = findViewById(R.id.loginRedirectText);
+        Button registerButton = findViewById(R.id.btn_register);
+        TextView loginRedirect = findViewById(R.id.tx_login);
 
 
         registerButton.setOnClickListener(v -> {
@@ -57,7 +53,6 @@ public class RegisterActivity extends AppCompatActivity {
             String fullname = fullnameEditText.getText().toString().trim();
             String birthdayStr = birthdayEditText.getText().toString().trim();
             String career = careerEditText.getText().toString().trim();
-            String salaryStr = salaryEditText.getText().toString().trim();
 
             if (email.isEmpty() || password.isEmpty() || fullname.isEmpty() || birthdayStr.isEmpty() || career.isEmpty()) {
                 Toast.makeText(RegisterActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
@@ -75,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 String userId = mAuth.getCurrentUser().getUid();
                                 Log.d(TAG, "User ID: " + userId);
                                 // Thêm userId vào đối tượng User
-                                User user = new User(userId, email, fullname, birthday, career, new ArrayList<Expense>());
+                                User user = new User(userId, email, fullname, birthday, career);
                                 db.collection("users").document(userId).set(user)
                                         .addOnSuccessListener(aVoid -> {
                                             Log.d(TAG, "User data saved to Firestore for userId: " + userId);
@@ -105,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         loginRedirect.setOnClickListener(v -> {
-            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+            finish();
         });
     }
 }

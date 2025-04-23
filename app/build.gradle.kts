@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-
+    implementation (libs.mpandroidchart)
     implementation (libs.firebase.auth)
     implementation(libs.appcompat)
     implementation(libs.material)
